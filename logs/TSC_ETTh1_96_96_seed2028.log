@@ -1,0 +1,56 @@
+The number of graphics processing units (GPUs) at the start of running the run_longExp.py script: 4
+Args in experiment:
+Namespace(random_seed=2028, is_training=1, model_id='ETTh1_96_96', model='TSC', data='ETTh1', root_path='./dataset/ETT-small/', data_path='ETTh1.csv', features='M', target='OT', freq='h', checkpoints='./checkpoints/', seq_len=96, label_len=0, pred_len=96, cycle=24, model_type='mlp', use_revin=1, spectrum_size=720, fourier_norm='ortho', lambda_orth=0, use_day_index=0, use_hour_index=0, use_min_index=0, day_length=7, hour_length=24, min_length=4, t_dim=0, s_dim=0, fc_dropout=0.05, head_dropout=0.0, patch_len=16, stride=8, padding_patch='end', revin=0, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, rnn_type='gru', dec_way='pmf', seg_len=48, channel_id=1, period_len=24, d_core=512, embed_type=0, enc_in=7, dec_in=7, c_out=7, d_model=128, n_heads=8, e_layers=3, d_layers=1, d_ff=2048, moving_avg=25, factor=1, distil=True, dropout=0.7, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=10, itr=1, train_epochs=30, batch_size=256, patience=5, learning_rate=0.001, des='exp', loss='mae', lradj='type3', pct_start=0.3, use_amp=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1', test_flop=False)
+Use GPU: cuda:0
+Model: TSC. The total number of model parameters: 839800
+>>>>>>>start training : ETTh1_96_96_TSC_ETTh1_ftM_sl96_pl96_cycle24_mlp_exp_seed2028>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 8449
+val 2785
+test 2785
+Epoch: 1 cost time: 2.2988884449005127
+Epoch: 1, Steps: 33 | Train Loss: 0.4776806 Vali Loss: 0.5774132 Test Loss: 0.4214855
+Validation loss decreased (inf --> 0.577413).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 1.6108386516571045
+Epoch: 2, Steps: 33 | Train Loss: 0.4360658 Vali Loss: 0.5484765 Test Loss: 0.3925681
+Validation loss decreased (0.577413 --> 0.548477).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 3 cost time: 1.4345903396606445
+Epoch: 3, Steps: 33 | Train Loss: 0.4117254 Vali Loss: 0.5429353 Test Loss: 0.3861635
+Validation loss decreased (0.548477 --> 0.542935).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 4 cost time: 1.4034905433654785
+Epoch: 4, Steps: 33 | Train Loss: 0.4040000 Vali Loss: 0.5399580 Test Loss: 0.3846617
+Validation loss decreased (0.542935 --> 0.539958).  Saving model ...
+Updating learning rate to 0.0008
+Epoch: 5 cost time: 1.5049002170562744
+Epoch: 5, Steps: 33 | Train Loss: 0.4001559 Vali Loss: 0.5386584 Test Loss: 0.3830252
+Validation loss decreased (0.539958 --> 0.538658).  Saving model ...
+Updating learning rate to 0.0006400000000000002
+Epoch: 6 cost time: 1.314077615737915
+Epoch: 6, Steps: 33 | Train Loss: 0.3979271 Vali Loss: 0.5326086 Test Loss: 0.3826011
+Validation loss decreased (0.538658 --> 0.532609).  Saving model ...
+Updating learning rate to 0.0005120000000000001
+Epoch: 7 cost time: 1.3901023864746094
+Epoch: 7, Steps: 33 | Train Loss: 0.3962890 Vali Loss: 0.5356089 Test Loss: 0.3820197
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 0.0004096000000000001
+Epoch: 8 cost time: 1.3478469848632812
+Epoch: 8, Steps: 33 | Train Loss: 0.3948916 Vali Loss: 0.5367550 Test Loss: 0.3817823
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 0.0003276800000000001
+Epoch: 9 cost time: 1.1933205127716064
+Epoch: 9, Steps: 33 | Train Loss: 0.3941162 Vali Loss: 0.5339459 Test Loss: 0.3820337
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 0.0002621440000000001
+Epoch: 10 cost time: 1.3694941997528076
+Epoch: 10, Steps: 33 | Train Loss: 0.3934463 Vali Loss: 0.5356956 Test Loss: 0.3815221
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 0.0002097152000000001
+Epoch: 11 cost time: 1.3870985507965088
+Epoch: 11, Steps: 33 | Train Loss: 0.3926903 Vali Loss: 0.5344836 Test Loss: 0.3815434
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : ETTh1_96_96_TSC_ETTh1_ftM_sl96_pl96_cycle24_mlp_exp_seed2028<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2785
+mse:0.36901381611824036, mae:0.3822857141494751

@@ -1,0 +1,64 @@
+The number of graphics processing units (GPUs) at the start of running the run_longExp.py script: 4
+Args in experiment:
+Namespace(random_seed=2026, is_training=1, model_id='ETTh1_96_96', model='TSC', data='ETTh1', root_path='./dataset/ETT-small/', data_path='ETTh1.csv', features='M', target='OT', freq='h', checkpoints='./checkpoints/', seq_len=96, label_len=0, pred_len=96, cycle=24, model_type='mlp', use_revin=1, spectrum_size=720, fourier_norm='ortho', lambda_orth=0, use_day_index=0, use_hour_index=0, use_min_index=0, day_length=7, hour_length=24, min_length=4, t_dim=0, s_dim=0, fc_dropout=0.05, head_dropout=0.0, patch_len=16, stride=8, padding_patch='end', revin=0, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, rnn_type='gru', dec_way='pmf', seg_len=48, channel_id=1, period_len=24, d_core=512, embed_type=0, enc_in=7, dec_in=7, c_out=7, d_model=128, n_heads=8, e_layers=3, d_layers=1, d_ff=2048, moving_avg=25, factor=1, distil=True, dropout=0.7, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=10, itr=1, train_epochs=30, batch_size=256, patience=5, learning_rate=0.001, des='exp', loss='mae', lradj='type3', pct_start=0.3, use_amp=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1', test_flop=False)
+Use GPU: cuda:0
+Model: TSC. The total number of model parameters: 839800
+>>>>>>>start training : ETTh1_96_96_TSC_ETTh1_ftM_sl96_pl96_cycle24_mlp_exp_seed2026>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 8449
+val 2785
+test 2785
+Epoch: 1 cost time: 2.3001272678375244
+Epoch: 1, Steps: 33 | Train Loss: 0.4804442 Vali Loss: 0.5841633 Test Loss: 0.4228034
+Validation loss decreased (inf --> 0.584163).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 1.472252368927002
+Epoch: 2, Steps: 33 | Train Loss: 0.4362799 Vali Loss: 0.5454972 Test Loss: 0.3920387
+Validation loss decreased (0.584163 --> 0.545497).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 3 cost time: 1.4309298992156982
+Epoch: 3, Steps: 33 | Train Loss: 0.4120660 Vali Loss: 0.5458085 Test Loss: 0.3864178
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 0.001
+Epoch: 4 cost time: 1.3562614917755127
+Epoch: 4, Steps: 33 | Train Loss: 0.4043671 Vali Loss: 0.5411695 Test Loss: 0.3845519
+Validation loss decreased (0.545497 --> 0.541170).  Saving model ...
+Updating learning rate to 0.0008
+Epoch: 5 cost time: 1.538771152496338
+Epoch: 5, Steps: 33 | Train Loss: 0.4005813 Vali Loss: 0.5377955 Test Loss: 0.3833965
+Validation loss decreased (0.541170 --> 0.537795).  Saving model ...
+Updating learning rate to 0.0006400000000000002
+Epoch: 6 cost time: 1.3186259269714355
+Epoch: 6, Steps: 33 | Train Loss: 0.3983151 Vali Loss: 0.5399842 Test Loss: 0.3826522
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 0.0005120000000000001
+Epoch: 7 cost time: 1.3421847820281982
+Epoch: 7, Steps: 33 | Train Loss: 0.3964662 Vali Loss: 0.5352246 Test Loss: 0.3820308
+Validation loss decreased (0.537795 --> 0.535225).  Saving model ...
+Updating learning rate to 0.0004096000000000001
+Epoch: 8 cost time: 1.388517141342163
+Epoch: 8, Steps: 33 | Train Loss: 0.3954324 Vali Loss: 0.5320352 Test Loss: 0.3820961
+Validation loss decreased (0.535225 --> 0.532035).  Saving model ...
+Updating learning rate to 0.0003276800000000001
+Epoch: 9 cost time: 1.45930814743042
+Epoch: 9, Steps: 33 | Train Loss: 0.3946134 Vali Loss: 0.5343942 Test Loss: 0.3820081
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 0.0002621440000000001
+Epoch: 10 cost time: 1.38328218460083
+Epoch: 10, Steps: 33 | Train Loss: 0.3938709 Vali Loss: 0.5352808 Test Loss: 0.3816053
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 0.0002097152000000001
+Epoch: 11 cost time: 1.4619216918945312
+Epoch: 11, Steps: 33 | Train Loss: 0.3932129 Vali Loss: 0.5346748 Test Loss: 0.3815774
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 0.0001677721600000001
+Epoch: 12 cost time: 1.1382224559783936
+Epoch: 12, Steps: 33 | Train Loss: 0.3928174 Vali Loss: 0.5358474 Test Loss: 0.3815575
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 0.00013421772800000008
+Epoch: 13 cost time: 1.491819143295288
+Epoch: 13, Steps: 33 | Train Loss: 0.3923849 Vali Loss: 0.5349888 Test Loss: 0.3816375
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : ETTh1_96_96_TSC_ETTh1_ftM_sl96_pl96_cycle24_mlp_exp_seed2026<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2785
+mse:0.368887722492218, mae:0.3817591667175293

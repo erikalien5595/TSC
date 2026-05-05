@@ -71,11 +71,8 @@ class Dataset_ETT_hour(Dataset):
         if self.cycle is None or int(self.cycle) <= 0:
             raise ValueError("`cycle` must be a positive integer to compute cycle_data")
 
-        seasonal = train_data_std #- trend
-
-        # The data is grouped by the "position within the cycle", and then the mean value of the seasonal components is calculated to yield cycle_data.
         pos = (np.arange(n)+self.seq_len) % int(self.cycle)
-        out = seasonal.groupby(pos).mean()
+        out = train_data_std.groupby(pos).mean()
 
         df_stamp = df_raw[['date']][border1:border2]
         df_stamp['date'] = pd.to_datetime(df_stamp.date)
@@ -197,11 +194,8 @@ class Dataset_ETT_minute(Dataset):
         if self.cycle is None or int(self.cycle) <= 0:
             raise ValueError("`cycle` must be a positive integer to compute cycle_data")
 
-        seasonal = train_data_std
-
-        # Data are grouped by the "position within the cycle", and then the mean value of the seasonal components is computed to yield cycle_data.
         pos = (np.arange(n)+self.seq_len) % int(self.cycle)
-        out = seasonal.groupby(pos).mean()
+        out = train_data_std.groupby(pos).mean()
 
         df_stamp = df_raw[['date']][border1:border2]
         df_stamp['date'] = pd.to_datetime(df_stamp.date)
@@ -342,15 +336,8 @@ class Dataset_Custom(Dataset):
         if self.cycle is None or int(self.cycle) <= 0:
             raise ValueError("`cycle` must be a positive integer to compute cycle_data")
 
-       
-        trend = train_data_std.rolling(window=int(self.cycle), center=True, min_periods=1).mean()
-
-        print('cycle', self.cycle, 'train_data_std', train_data_std.shape, 'trend', trend.shape)
-        seasonal = train_data_std - trend
-
-    
         pos = (np.arange(n)+self.seq_len) % int(self.cycle)
-        out = seasonal.groupby(pos).mean()
+        out = train_data_std.groupby(pos).mean()
 
         df_stamp = df_raw[['date']][border1:border2]
         df_stamp['date'] = pd.to_datetime(df_stamp.date)
@@ -422,7 +409,7 @@ class Dataset_Custom(Dataset):
 class Dataset_Solar(Dataset):
     def __init__(self, root_path, flag='train', size=None,
                  features='S', data_path='ETTh1.csv',
-                 target='OT', scale=True, timeenc=0, freq='h', seasonal_patterns=None, cycle=None):
+                 target='OT', scale=True, timeenc=0, freq='h', cycle=None):
         # size [seq_len, label_len, pred_len]
         # info
         self.seq_len = size[0]
@@ -483,11 +470,8 @@ class Dataset_Solar(Dataset):
         if self.cycle is None or int(self.cycle) <= 0:
             raise ValueError("`cycle` must be a positive integer to compute cycle_data")
 
-        seasonal = train_data_std
-
-       
         pos = (np.arange(n)+self.seq_len) % int(self.cycle)
-        out = seasonal.groupby(pos).mean()
+        out = train_data_std.groupby(pos).mean()
 
         self.data_x = data[border1:border2]
         self.data_y = data[border1:border2]
@@ -576,11 +560,10 @@ class Dataset_PEMS(Dataset):
 
         train_data_std = pd.DataFrame(data[border1s[0]:border2s[0]])
         n = len(train_data_std)
-        seasonal = train_data_std
 
         
         pos = (np.arange(n)+self.seq_len) % int(self.cycle)
-        out = seasonal.groupby(pos).mean()
+        out = train_data_std.groupby(pos).mean()
 
         self.data_x = data[border1:border2]
         self.data_y = data[border1:border2]
@@ -726,10 +709,8 @@ class DataSim(Dataset):
         if self.cycle is None or int(self.cycle) <= 0:
             raise ValueError("`cycle` must be a positive integer to compute cycle_data")
 
-        trend = train_data_std.rolling(window=int(self.cycle), center=True, min_periods=1).mean()
-        seasonal = train_data_std - trend
         pos = (np.arange(n) + self.seq_len) % int(self.cycle)
-        out = seasonal.groupby(pos).mean()
+        out = train_data_std.groupby(pos).mean()
 
         df_stamp = df_raw[['date']][border1:border2].copy()
         df_stamp['date'] = pd.to_datetime(df_stamp['date'])
